@@ -1,0 +1,480 @@
+/* ============================================================
+   THAI MASSAGE – Services & Preisliste
+   services.css
+   ============================================================ */
+
+/* ----------------------------------------------------------
+   SERVICES SECTION – Wrapper
+---------------------------------------------------------- */
+.services {
+  background: var(--color-deep);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Dekorativer Hintergrund-Glow */
+.services::before {
+  content: "";
+  position: absolute;
+  top: -200px;
+  right: -200px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(
+    circle,
+    rgba(192, 132, 212, 0.08) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.services::after {
+  content: "";
+  position: absolute;
+  bottom: -200px;
+  left: -200px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(
+    circle,
+    rgba(123, 94, 167, 0.07) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.services__header {
+  text-align: center;
+  margin-bottom: var(--space-16);
+  position: relative;
+  z-index: 1;
+}
+
+.services__header .section-label {
+  color: var(--color-lavender);
+}
+
+.services__header .section-title {
+  color: var(--color-white);
+}
+
+.services__header .section-sub {
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0 auto;
+}
+
+/* ----------------------------------------------------------
+     SERVICE CARDS GRID
+  ---------------------------------------------------------- */
+.services__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 640px) {
+  .services__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .services__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+  }
+}
+
+/* ----------------------------------------------------------
+     SERVICE CARD
+  ---------------------------------------------------------- */
+.service-card {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  cursor: pointer;
+  background: rgb(132, 70, 138);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  transition: transform var(--transition-base),
+    border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(192, 132, 212, 0.3);
+  box-shadow: 0 24px 60px rgba(123, 94, 167, 0.2);
+}
+
+/* Bild */
+.service-card__img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  object-position: center;
+  transition: transform var(--transition-silk);
+  display: block;
+}
+
+@media (min-width: 1024px) {
+  .service-card__img {
+    height: 260px;
+  }
+}
+
+.service-card:hover .service-card__img {
+  transform: scale(1.07);
+}
+
+/* Bild-Overlay */
+.service-card__img-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 240px;
+  background: linear-gradient(
+    to bottom,
+    transparent 40%,
+    rgba(13, 13, 13, 0.6) 100%
+  );
+  pointer-events: none;
+}
+
+@media (min-width: 1024px) {
+  .service-card__img-overlay {
+    height: 260px;
+  }
+}
+
+/* Body */
+.service-card__body {
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+/* Icon / Nummer */
+.service-card__number {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: var(--fw-light);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-widest);
+  color: var(--color-lavender);
+  text-transform: uppercase;
+}
+
+/* Titel */
+.service-card__title {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: var(--fw-light);
+  font-size: var(--fs-lg);
+  color: var(--color-white);
+  line-height: var(--lh-snug);
+}
+
+/* Beschreibung */
+.service-card__desc {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-sm);
+  color: rgb(214, 187, 210);
+  line-height: var(--lh-loose);
+}
+
+/* Dauer & Preis Zeile */
+.service-card__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  padding-top: var(--space-4);
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  margin-top: var(--space-2);
+}
+
+.service-card__duration {
+  font-family: var(--font-sans);
+  font-size: var(--fs-xs);
+  font-weight: 400;
+  letter-spacing: var(--ls-wider);
+  text-transform: uppercase;
+  color: white;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-2);
+}
+
+.service-card__duration::before {
+  content: "◷";
+  font-size: 0.9em;
+  color: var(--color-lavender);
+}
+
+.service-card__price {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 5px;
+  font-weight: var(--fw-light);
+  font-size: var(--fs-lg);
+  color: var(--color-white);
+}
+
+.service-card__price span {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 20px;
+  color: white;
+  margin-left: 2px;
+}
+
+/* Hover CTA am unteren Rand */
+.service-card__cta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-sans);
+  font-size: var(--fs-xs);
+  font-weight: 350;
+  letter-spacing: var(--ls-wider);
+  text-transform: uppercase;
+  color: white;
+  margin: 4rem 0 0 auto;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity var(--transition-base), transform var(--transition-base);
+}
+
+#mehr-erfahren {
+  margin: 6rem 0 0 auto;
+}
+
+.service-card__cta::after {
+  content: "→";
+  transition: transform var(--transition-fast);
+}
+
+.service-card:hover .service-card__cta {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.service-card:hover .service-card__cta::after {
+  transform: translateX(4px);
+}
+
+/* ----------------------------------------------------------
+     FEATURED SERVICE CARD – Breit, hervorgehoben
+  ---------------------------------------------------------- */
+.service-card--featured {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr;
+  border-color: rgba(192, 132, 212, 0.2);
+}
+
+@media (min-width: 768px) {
+  .service-card--featured {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.service-card--featured .service-card__img {
+  height: 300px;
+}
+
+@media (min-width: 768px) {
+  .service-card--featured .service-card__img {
+    height: 100%;
+    min-height: 320px;
+  }
+
+  .service-card--featured .service-card__img-overlay {
+    height: 100%;
+    background: linear-gradient(
+      to right,
+      transparent 40%,
+      rgba(13, 13, 13, 0.5) 100%
+    );
+  }
+}
+
+.service-card--featured .service-card__body {
+  padding: var(--space-8);
+  justify-content: center;
+}
+
+.service-card--featured .service-card__title {
+  font-size: var(--fs-xl);
+}
+
+/* Featured Badge */
+.service-card__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-sans);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-wider);
+  text-transform: uppercase;
+  color: var(--color-white);
+  background: linear-gradient(
+    135deg,
+    var(--color-lavender),
+    var(--color-violet)
+  );
+  padding: var(--space-1) var(--space-4);
+  border-radius: var(--radius-full);
+  margin-bottom: var(--space-3);
+  width: fit-content;
+}
+
+/* ----------------------------------------------------------
+     PREISLISTE – Separate leistungen.html Section
+  ---------------------------------------------------------- */
+.prices {
+  background: var(--color-cream);
+  overflow: hidden;
+}
+
+.prices__header {
+  text-align: center;
+  margin-bottom: var(--space-12);
+}
+
+/* Preiskategorie Tabs */
+.prices__tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-10);
+}
+
+.prices__tab {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-wider);
+  text-transform: uppercase;
+  padding: var(--space-2) var(--space-5);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border);
+  color: var(--color-muted);
+  background: transparent;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.prices__tab:hover,
+.prices__tab.active {
+  background: var(--color-violet);
+  border-color: var(--color-violet);
+  color: var(--color-white);
+}
+
+/* Preistabelle */
+.prices__table {
+  max-width: 780px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-5) var(--space-6);
+  border-radius: var(--radius-md);
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  transition: all var(--transition-fast);
+  gap: var(--space-4);
+}
+
+.price-row:hover {
+  border-color: var(--color-lavender);
+  box-shadow: var(--shadow-card);
+  transform: translateX(4px);
+}
+
+.price-row__left {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.price-row__name {
+  font-family: var(--font-serif);
+  font-weight: var(--fw-light);
+  font-size: var(--fs-md);
+  color: var(--color-stone);
+}
+
+.price-row__desc {
+  font-family: var(--font-sans);
+  font-size: var(--fs-xs);
+  color: var(--color-muted);
+  letter-spacing: var(--ls-wide);
+}
+
+.price-row__right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  flex-shrink: 0;
+}
+
+.price-row__duration {
+  font-family: var(--font-sans);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-wider);
+  text-transform: uppercase;
+  color: var(--color-muted);
+  white-space: nowrap;
+}
+
+.price-row__price {
+  font-family: var(--font-serif);
+  font-weight: var(--fw-light);
+  font-size: var(--fs-lg);
+  color: var(--color-violet);
+  white-space: nowrap;
+  min-width: 70px;
+  text-align: right;
+}
+
+/* Kategorie-Trenner */
+.price-category {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-widest);
+  text-transform: uppercase;
+  color: var(--color-lavender);
+  padding: var(--space-6) var(--space-6) var(--space-3);
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.price-category::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--color-border);
+}
+
+/* Hinweis-Text unter der Tabelle */
+.prices__note {
+  text-align: center;
+  margin-top: var(--space-8);
+  font-family: var(--font-sans);
+  font-size: var(--fs-sm);
+  color: var(--color-muted);
+  font-style: italic;
+}

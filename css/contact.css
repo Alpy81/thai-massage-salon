@@ -1,0 +1,524 @@
+/* ============================================================
+   THAI MASSAGE – Kontakt & Terminbuchung
+   contact.css
+   ============================================================ */
+
+/* ----------------------------------------------------------
+   KONTAKT PAGE HERO – schlank, nicht fullscreen
+---------------------------------------------------------- */
+.contact-hero {
+  position: relative;
+  padding: calc(var(--navbar-height) + var(--space-16)) 0 var(--space-16);
+  background: var(--color-deep);
+  overflow: hidden;
+  text-align: center;
+}
+
+.contact-hero::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(
+    circle,
+    rgba(192, 132, 212, 0.1) 0%,
+    transparent 65%
+  );
+  pointer-events: none;
+}
+
+.contact-hero__label {
+  font-family: var(--font-sans);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-widest);
+  text-transform: uppercase;
+  color: var(--color-lavender);
+  display: block;
+  margin-bottom: var(--space-4);
+}
+
+.contact-hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 6rem);
+  color: var(--color-white);
+  line-height: 1;
+  margin-bottom: var(--space-4);
+}
+
+.contact-hero__sub {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--fs-md);
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* ----------------------------------------------------------
+     KONTAKT HAUPTBEREICH
+  ---------------------------------------------------------- */
+.contact-main {
+  background: var(--color-cream);
+}
+
+.contact-main__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-12);
+}
+
+@media (min-width: 1024px) {
+  .contact-main__inner {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-20);
+    align-items: start;
+  }
+}
+
+/* ----------------------------------------------------------
+     KONTAKT INFOS – Links
+  ---------------------------------------------------------- */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.contact-info__title {
+  font-family: var(--font-serif);
+  font-weight: var(--fw-light);
+  font-size: var(--fs-xl);
+  color: var(--color-stone);
+  line-height: var(--lh-snug);
+}
+
+.contact-info__desc {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-light);
+  font-size: var(--fs-base);
+  color: var(--color-muted);
+  line-height: var(--lh-loose);
+}
+
+/* Info-Kacheln */
+.contact-info__items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  padding: var(--space-5);
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  transition: all var(--transition-fast);
+}
+
+.contact-item:hover {
+  border-color: var(--color-lavender);
+  box-shadow: var(--shadow-card);
+}
+
+.contact-item__icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(
+    135deg,
+    rgba(192, 132, 212, 0.15),
+    rgba(123, 94, 167, 0.15)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  color: var(--color-violet);
+}
+
+.contact-item__label {
+  font-family: var(--font-sans);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-wider);
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin-bottom: var(--space-1);
+}
+
+.contact-item__value {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-base);
+  color: var(--color-stone);
+}
+
+.contact-item__value a {
+  color: var(--color-stone);
+  transition: color var(--transition-fast);
+}
+
+.contact-item__value a:hover {
+  color: var(--color-violet);
+}
+
+/* Öffnungszeiten */
+.contact-hours {
+  padding: var(--space-6);
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+}
+
+.contact-hours__title {
+  font-family: var(--font-sans);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-widest);
+  text-transform: uppercase;
+  color: var(--color-lavender);
+  margin-bottom: var(--space-4);
+}
+
+.contact-hours__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.contact-hours__row:last-child {
+  border-bottom: none;
+}
+
+.contact-hours__day {
+  font-family: var(--font-sans);
+  font-size: var(--fs-sm);
+  color: var(--color-stone);
+}
+
+.contact-hours__time {
+  font-family: var(--font-sans);
+  font-size: var(--fs-sm);
+  color: var(--color-muted);
+}
+
+.contact-hours__time--closed {
+  color: rgba(192, 132, 212, 0.6);
+  font-style: italic;
+}
+
+/* ----------------------------------------------------------
+     KONTAKT FORMULAR – Rechts
+  ---------------------------------------------------------- */
+.contact-form-wrap {
+  position: sticky;
+  top: calc(var(--navbar-height) + var(--space-6));
+}
+
+.contact-form {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+@media (min-width: 768px) {
+  .contact-form {
+    padding: var(--space-10);
+  }
+}
+
+.contact-form__title {
+  font-family: var(--font-serif);
+  font-weight: var(--fw-light);
+  font-size: var(--fs-lg);
+  color: var(--color-stone);
+  margin-bottom: var(--space-2);
+}
+
+.contact-form__subtitle {
+  font-family: var(--font-sans);
+  font-size: var(--fs-sm);
+  color: var(--color-muted);
+  margin-bottom: var(--space-2);
+}
+
+/* Formular-Zeilen */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+@media (min-width: 480px) {
+  .form-row--two {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Field Group */
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.form-field label {
+  font-family: var(--font-sans);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-wider);
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+/* Input & Textarea & Select */
+.form-field input,
+.form-field textarea,
+.form-field select {
+  width: 100%;
+  padding: var(--space-4) var(--space-5);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-family: var(--font-sans);
+  font-weight: var(--fw-light);
+  font-size: var(--fs-base);
+  color: var(--color-stone);
+  outline: none;
+  transition: border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  color: var(--color-muted);
+  opacity: 0.6;
+}
+
+.form-field input:focus,
+.form-field textarea:focus,
+.form-field select:focus {
+  border-color: var(--color-lavender);
+  box-shadow: 0 0 0 3px rgba(192, 132, 212, 0.12);
+  background: var(--color-white);
+}
+
+.form-field textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Select Pfeil */
+.form-field--select {
+  position: relative;
+}
+
+.form-field--select::after {
+  content: "↓";
+  position: absolute;
+  right: var(--space-4);
+  bottom: var(--space-4);
+  font-size: var(--fs-xs);
+  color: var(--color-lavender);
+  pointer-events: none;
+}
+
+/* Submit Button */
+.form-submit {
+  width: 100%;
+  padding: var(--space-4) var(--space-8);
+  background: linear-gradient(
+    135deg,
+    var(--color-lavender),
+    var(--color-violet)
+  );
+  color: var(--color-white);
+  border: none;
+  border-radius: var(--radius-full);
+  font-family: var(--font-sans);
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-sm);
+  letter-spacing: var(--ls-wider);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-md);
+  margin-top: var(--space-2);
+}
+
+.form-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(123, 94, 167, 0.35);
+}
+
+.form-submit:active {
+  transform: translateY(0);
+}
+
+/* Erfolgs- & Fehlermeldung */
+.form-message {
+  padding: var(--space-4) var(--space-5);
+  border-radius: var(--radius-md);
+  font-family: var(--font-sans);
+  font-size: var(--fs-sm);
+  display: none;
+}
+
+.form-message.success {
+  background: rgba(192, 132, 212, 0.1);
+  border: 1px solid var(--color-lavender);
+  color: var(--color-violet);
+  display: block;
+}
+
+.form-message.error {
+  background: rgba(220, 80, 80, 0.08);
+  border: 1px solid rgba(220, 80, 80, 0.3);
+  color: #c0392b;
+  display: block;
+}
+
+/* ----------------------------------------------------------
+     TERMINBUCHUNG – Highlight Section
+  ---------------------------------------------------------- */
+.booking.section {
+  background: linear-gradient(180deg, #fdf0ec 0%, #f5bde9 60%, #fdf0ec 100%);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.booking::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at 50% 50%,
+    rgba(123, 94, 167, 0.15) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.booking__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.booking__deco {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 10vw, 7rem);
+  font-weight: 1200;
+  color: rgba(192, 132, 212, 0.08);
+  line-height: 1;
+  margin-bottom: var(--space-2);
+  pointer-events: none;
+  user-select: none;
+}
+
+.booking__title {
+  font-family: var(--font-serif);
+  font-weight: var(--fw-light);
+  font-size: var(--fs-xl);
+  color: var(--color-white);
+  margin-bottom: var(--space-4);
+  line-height: var(--lh-snug);
+}
+
+@media (min-width: 768px) {
+  .booking__title {
+    font-size: var(--fs-2xl);
+  }
+}
+
+.booking__desc {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-light);
+  font-size: var(--fs-base);
+  color: rgba(255, 255, 255, 0.5);
+  line-height: var(--lh-loose);
+  margin-bottom: var(--space-8);
+}
+
+.booking__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-4);
+}
+
+/* Telefon-Link groß */
+.booking__phone {
+  font-family: var(--font-serif);
+  font-weight: var(--fw-light);
+  font-size: var(--fs-xl);
+  color: var(--color-white);
+  letter-spacing: var(--ls-wide);
+  transition: color var(--transition-fast);
+  display: block;
+  margin-bottom: var(--space-6);
+}
+
+.booking__phone:hover {
+  color: var(--color-lavender);
+}
+
+/* ----------------------------------------------------------
+     KARTE / ANFAHRT
+  ---------------------------------------------------------- */
+.map-section {
+  background: var(--color-surface);
+}
+
+.map-section__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+}
+
+@media (min-width: 1024px) {
+  .map-section__inner {
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+  }
+}
+
+.map-section__info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.map-section__info .section-title {
+  font-size: var(--fs-xl);
+}
+
+.map-embed {
+  width: 100%;
+  height: 380px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-md);
+}
+
+.map-embed iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}

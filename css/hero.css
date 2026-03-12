@@ -1,0 +1,300 @@
+/* ============================================================
+   THAI MASSAGE – Hero Section
+   hero.css
+   ============================================================ */
+
+/* ----------------------------------------------------------
+   HERO WRAPPER
+---------------------------------------------------------- */
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100svh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  background: var(--color-deep);
+}
+
+/* ----------------------------------------------------------
+     HINTERGRUNDBILD
+  ---------------------------------------------------------- */
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transform: scale(1.06);
+  animation: hero-zoom 12s ease-out forwards;
+}
+
+@keyframes hero-zoom {
+  from {
+    transform: scale(1.06);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/* ----------------------------------------------------------
+     OVERLAY – mehrschichtig für Tiefe
+  ---------------------------------------------------------- */
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to top,
+    rgba(13, 13, 13, 0.85) 0%,
+    rgba(13, 13, 13, 0.3) 50%,
+    rgba(13, 13, 13, 0.1) 100%
+  );
+}
+
+/* Lila Hauch von links unten */
+.hero__overlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at 0% 100%,
+    rgba(123, 94, 167, 0.25) 0%,
+    transparent 60%
+  );
+}
+
+/* ----------------------------------------------------------
+     CONTENT
+  ---------------------------------------------------------- */
+.hero__content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: var(--space-16) var(--space-5) var(--space-16);
+  max-width: var(--max-width);
+  margin: 0 0 0 auto;
+}
+
+@media (min-width: 768px) {
+  .hero__content {
+    padding: var(--space-20) var(--space-8) var(--space-20);
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero__content {
+    padding: var(--space-24) var(--space-12) var(--space-24);
+    max-width: 780px;
+  }
+}
+
+/* Kleines Label über dem Titel */
+.hero__label {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-widest);
+  text-transform: uppercase;
+  color: var(--color-lavender);
+  margin-bottom: var(--space-4);
+  opacity: 0;
+  animation: fade-up 0.8s ease forwards 0.4s;
+}
+
+/* "bei" */
+#bei {
+  color: rgba(255, 255, 255, 0.72);
+  opacity: 0;
+  animation: fade-up 1s ease forwards 0.8s;
+}
+
+/* Display-Titel */
+.hero__title {
+  font-family: var(--font-display);
+  font-weight: var(--fw-regular);
+  font-size: clamp(3.5rem, 10vw, 7rem);
+  line-height: 1;
+  color: var(--color-white);
+  margin-bottom: var(--space-4);
+  opacity: 0;
+  animation: fade-up 1s ease forwards 1.2s;
+}
+
+/* Slogan / Subheadline */
+.hero__subtitle {
+  font-family: var(--font-serif);
+  font-weight: var(--fw-medium);
+  font-style: normal;
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  color: rgba(255, 255, 255, 0.72);
+  letter-spacing: var(--ls-wide);
+  margin-bottom: var(--space-8);
+  opacity: 0;
+  animation: fade-up 1s ease forwards 1.6s;
+}
+
+/* Beschreibungstext */
+.hero__desc {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-base);
+  color: rgba(255, 255, 255, 0.6);
+  line-height: var(--lh-loose);
+  max-width: 520px;
+  margin-bottom: var(--space-10);
+  opacity: 0;
+  animation: fade-up 1s ease forwards 2s;
+}
+
+/* CTA Buttons Gruppe */
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  align-items: center;
+  opacity: 0;
+  animation: fade-up 3s ease forwards 2.4s;
+}
+
+/* ----------------------------------------------------------
+     SCROLL INDICATOR
+  ---------------------------------------------------------- */
+.hero__scroll {
+  position: absolute;
+  bottom: var(--space-8);
+  right: var(--space-5);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  opacity: 0;
+  animation: fade-in 1s ease forwards 2s;
+}
+
+@media (min-width: 768px) {
+  .hero__scroll {
+    right: var(--space-8);
+  }
+}
+
+.hero__scroll span {
+  font-family: var(--font-sans);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-widest);
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  writing-mode: vertical-rl;
+}
+
+.hero__scroll-line {
+  width: 1px;
+  height: 64px;
+  background: linear-gradient(to bottom, var(--color-lavender), transparent);
+  animation: scroll-line 2s ease-in-out infinite 2.5s;
+}
+
+@keyframes scroll-line {
+  0% {
+    transform: scaleY(0);
+    transform-origin: top;
+    opacity: 1;
+  }
+  50% {
+    transform: scaleY(1);
+    transform-origin: top;
+    opacity: 1;
+  }
+  100% {
+    transform: scaleY(1);
+    transform-origin: bottom;
+    opacity: 0;
+  }
+}
+
+/* ----------------------------------------------------------
+     STAT PILLS – kurze Kennzahlen am unteren Rand
+  ---------------------------------------------------------- */
+.hero__stats {
+  position: absolute;
+  bottom: var(--space-8);
+  left: var(--space-5);
+  z-index: 2;
+  display: none;
+  gap: var(--space-6);
+  opacity: 0;
+  animation: fade-up 0.9s ease forwards 1.6s;
+}
+
+@media (min-width: 768px) {
+  .hero__stats {
+    display: flex;
+    left: var(--space-8);
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero__stats {
+    left: var(--space-12);
+  }
+}
+
+.hero__stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.hero__stat-number {
+  font-family: var(--font-serif);
+  font-weight: var(--fw-light);
+  font-size: var(--fs-lg);
+  color: var(--color-white);
+  line-height: 1;
+}
+
+.hero__stat-label {
+  font-family: var(--font-sans);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-wider);
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.hero__stat-sep {
+  width: 1px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.15);
+  align-self: center;
+}
+
+/* ----------------------------------------------------------
+     ANIMATIONEN
+  ---------------------------------------------------------- */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
