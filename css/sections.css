@@ -237,6 +237,14 @@
   }
 }
 
+#momente {
+  color: var(--color-black);
+}
+
+#bewertungen {
+  color: var(--color-black);
+}
+
 .gallery__item {
   position: relative;
   overflow: hidden;
@@ -416,6 +424,87 @@
   font-family: var(--font-sans);
   font-size: var(--fs-xs);
   color: var(--color-muted);
+}
+
+/* ----------------------------------------------------------
+   PRICE TABLE (leistungen.html#preise)
+---------------------------------------------------------- */
+.price-table {
+  width: 100%;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(192, 132, 212, 0.18);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.price-table__row {
+  display: grid;
+  grid-template-columns: 1.4fr 0.6fr 0.6fr;
+  gap: var(--space-4);
+  padding: var(--space-5) var(--space-6);
+  align-items: center;
+}
+
+.price-table__row + .price-table__row {
+  border-top: 1px solid rgba(192, 132, 212, 0.14);
+}
+
+.price-table__head {
+  background: rgba(245, 189, 233, 0.35);
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  font-size: var(--fs-xs);
+  color: rgba(30, 20, 40, 0.8);
+}
+
+.price-table__row div:nth-child(1) {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: var(--fw-light);
+  color: rgba(30, 20, 40, 0.92);
+}
+
+.price-table__row div:nth-child(2),
+.price-table__row div:nth-child(3) {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: rgba(30, 20, 40, 0.75);
+  text-align: right;
+  white-space: nowrap;
+}
+
+.price-table__row div:nth-child(3) {
+  font-weight: var(--fw-medium);
+  color: rgba(30, 20, 40, 0.88);
+}
+
+/* Hover */
+.price-table__row:not(.price-table__head):hover {
+  background: rgba(245, 189, 233, 0.18);
+}
+
+#preise {
+  color: var(--color-black);
+}
+
+/* Responsive: auf kleineren Screens stapeln */
+@media (max-width: 640px) {
+  .price-table__row {
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+    padding: var(--space-5);
+  }
+
+  .price-table__row div:nth-child(2),
+  .price-table__row div:nth-child(3) {
+    text-align: left;
+  }
+
+  .price-table__head {
+    display: none; /* Head ausblenden, weil wir stacken */
+  }
 }
 
 /* ----------------------------------------------------------

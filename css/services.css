@@ -66,6 +66,7 @@
 /* ----------------------------------------------------------
      SERVICE CARDS GRID
   ---------------------------------------------------------- */
+
 .services__grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -75,6 +76,9 @@
 }
 
 @media (min-width: 640px) {
+  #leistungen {
+    margin-top: 3rem;
+  }
   .services__grid {
     grid-template-columns: repeat(2, 1fr);
   }

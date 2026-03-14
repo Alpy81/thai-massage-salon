@@ -168,8 +168,16 @@ em {
   font-weight: var(--fw-light);
   font-size: var(--fs-xl);
   line-height: var(--lh-snug);
-  color: var(--color-stone);
+  color: var(--color-white);
   margin-bottom: var(--space-4);
+}
+
+#section-title-leistungen {
+  color: var(--color-white);
+}
+
+#section-sub-id {
+  color: var(--color-white);
 }
 
 @media (min-width: 768px) {
