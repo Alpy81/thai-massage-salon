@@ -328,61 +328,112 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* --------------------------------------------------------
-       8. KONTAKTFORMULAR
+       8. KONTAKTFORMULAR – Validierung + Erfolgsmeldung
     -------------------------------------------------------- */
   const contactForm = document.getElementById("contactForm");
 
   if (contactForm) {
-    const formMessage = contactForm.querySelector(".form-message");
-    const submitBtn = contactForm.querySelector(".form-submit");
+    const successMsg = document.getElementById("formSuccess");
 
-    contactForm.addEventListener("submit", async (e) => {
+    contactForm.addEventListener("submit", (e) => {
       e.preventDefault();
 
-      // Button deaktivieren
-      submitBtn.disabled = true;
-      submitBtn.textContent =
-        currentLang === "de" ? "Wird gesendet …" : "Sending …";
+      // Pflichtfelder
+      const name = contactForm.querySelector("#cf-name");
+      const email = contactForm.querySelector("#cf-email");
+      let isValid = true;
 
-      // Formular-Daten sammeln
-      const data = Object.fromEntries(new FormData(contactForm));
+      // Reset vorherige Fehler
+      contactForm
+        .querySelectorAll(".contact-form__error")
+        .forEach((el) => el.remove());
+      contactForm.querySelectorAll("input, select, textarea").forEach((el) => {
+        el.style.borderColor = "";
+      });
 
-      /* 
-          HINWEIS: Hier Backend-Endpunkt eintragen.
-          Beispiel mit Formspree:
-          const res = await fetch('https://formspree.io/f/DEIN_ID', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-            body: JSON.stringify(data)
-          });
-        */
-
-      // Demo: Simuliert erfolgreichen Versand nach 1.2s
-      await new Promise((resolve) => setTimeout(resolve, 1200));
-      const success = true; // In Produktion: res.ok
-
-      if (formMessage) {
-        formMessage.classList.remove("success", "error");
-        if (success) {
-          formMessage.textContent =
-            currentLang === "de"
-              ? "✓ Ihre Nachricht wurde erfolgreich gesendet. Wir melden uns bald bei Ihnen."
-              : "✓ Your message has been sent successfully. We will get back to you soon.";
-          formMessage.classList.add("success");
-          contactForm.reset();
-        } else {
-          formMessage.textContent =
-            currentLang === "de"
-              ? "Leider ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut."
-              : "Something went wrong. Please try again.";
-          formMessage.classList.add("error");
-        }
+      // Name prüfen
+      if (!name.value.trim()) {
+        showFormError(
+          name,
+          currentLang === "en"
+            ? "Please enter your name."
+            : "Bitte geben Sie Ihren Namen ein."
+        );
+        isValid = false;
       }
 
-      // Button wieder aktivieren
-      submitBtn.disabled = false;
-      submitBtn.textContent =
-        currentLang === "de" ? "Nachricht senden" : "Send Message";
+      // E-Mail prüfen
+      if (!email.value.trim()) {
+        showFormError(
+          email,
+          currentLang === "en"
+            ? "Please enter your email."
+            : "Bitte geben Sie Ihre E-Mail ein."
+        );
+        isValid = false;
+      } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
+        showFormError(
+          email,
+          currentLang === "en"
+            ? "Please enter a valid email."
+            : "Bitte geben Sie eine gültige E-Mail ein."
+        );
+        isValid = false;
+      }
+
+      if (!isValid) return;
+
+      // ── Hier später echten Versand einbauen ──
+      // Beispiel Formspree:
+      // fetch('https://formspree.io/f/DEINE_ID', {
+      //   method: 'POST',
+      //   headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      //   body: JSON.stringify(Object.fromEntries(new FormData(contactForm)))
+      // });
+
+      // Formular-Elemente ausblenden + Erfolg anzeigen
+      contactForm
+        .querySelectorAll(
+          ".contact-form__group, .contact-form__row, .contact-form__title, .contact-form__submit"
+        )
+        .forEach((el) => {
+          el.style.display = "none";
+        });
+
+      if (successMsg) {
+        successMsg.hidden = false;
+      }
+
+      // Nach 5 Sek. Formular wieder einblenden
+      setTimeout(() => {
+        contactForm.reset();
+        contactForm
+          .querySelectorAll(
+            ".contact-form__group, .contact-form__row, .contact-form__title, .contact-form__submit"
+          )
+          .forEach((el) => {
+            el.style.display = "";
+          });
+        if (successMsg) successMsg.hidden = true;
+      }, 5000);
+    });
+
+    // Fehler unter Feld anzeigen
+    function showFormError(field, message) {
+      field.style.borderColor = "rgba(255, 100, 100, 0.7)";
+      const error = document.createElement("span");
+      error.className = "contact-form__error";
+      error.textContent = message;
+      field.parentElement.appendChild(error);
+    }
+
+    // Live-Validierung: Fehler entfernen bei Eingabe
+    contactForm.querySelectorAll("input, select, textarea").forEach((field) => {
+      field.addEventListener("input", () => {
+        field.style.borderColor = "";
+        const err = field.parentElement.querySelector(".contact-form__error");
+        if (err) err.remove();
+      });
     });
   }
 

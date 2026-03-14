@@ -633,3 +633,85 @@
 .footer__legal a:hover {
   color: var(--color-lavender);
 }
+
+/* ----------------------------------------------------------
+   LEGAL PAGES (Impressum, Datenschutz, AGB)
+---------------------------------------------------------- */
+
+#impressum,
+#datenschutz,
+#agb {
+  background: var(--color-cream) !important;
+}
+
+#impressum-h1,
+#datenschutz-h1,
+#agb-h1 {
+  color: var(--color-stone);
+}
+
+@media (min-width: 430px) {
+  #rechtliches {
+    margin-top: 3rem;
+  }
+}
+
+.legal-content {
+  position: relative;
+  z-index: 1;
+  max-width: 780px;
+  margin: 0 auto;
+  color: black;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.legal-content h2 {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-lg);
+  color: var(--color-black);
+  margin-top: var(--space-10);
+  margin-bottom: var(--space-4);
+}
+
+.legal-content h3 {
+  font-family: var(--font-serif);
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-base);
+  color: black;
+  margin-top: var(--space-6);
+  margin-bottom: var(--space-3);
+}
+
+.legal-content p {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-light);
+  font-size: var(--fs-base);
+  color: black;
+  line-height: var(--lh-loose);
+  margin-bottom: var(--space-4);
+}
+
+.legal-content ul {
+  list-style: disc;
+  padding-left: var(--space-6);
+  margin-bottom: var(--space-4);
+}
+
+.legal-content li {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-light);
+  font-size: var(--fs-base);
+  color: black;
+  line-height: var(--lh-loose);
+  margin-bottom: var(--space-2);
+}
+
+.legal-content a {
+  color: var(--color-lavender);
+  transition: color var(--transition-fast);
+}
+
+.legal-content a:hover {
+  color: var(--color-white);
+}

@@ -524,3 +524,300 @@
   border: none;
   display: block;
 }
+
+/* ----------------------------------------------------------
+   KONTAKT – Grid (Infos + Formular)
+---------------------------------------------------------- */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-12);
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 768px) {
+  #contact {
+    margin-top: 3rem;
+  }
+  .contact-grid {
+    grid-template-columns: 1fr 1.2fr;
+    gap: var(--space-16);
+    align-items: start;
+  }
+}
+
+@media (min-width: 430px) {
+  #contact {
+    margin-top: 3rem;
+  }
+}
+
+/* ----------------------------------------------------------
+   KONTAKT – Infos (linke Spalte)
+---------------------------------------------------------- */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.contact-info__block {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.contact-info__icon {
+  font-size: 1.6rem;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.contact-info__title {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-base);
+  color: var(--color-white);
+  margin-bottom: var(--space-1);
+}
+
+.contact-info__link {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-light);
+  font-size: var(--fs-base);
+  color: rgba(255, 255, 255, 0.65);
+  transition: color var(--transition-fast);
+}
+
+.contact-info__link:hover {
+  color: var(--color-lavender);
+}
+
+.contact-info__text {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-light);
+  font-size: var(--fs-base);
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* Öffnungszeiten */
+.contact-info__hours {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.contact-info__hours li {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-6);
+  font-family: var(--font-sans);
+  font-weight: var(--fw-light);
+  font-size: var(--fs-sm);
+  color: rgba(255, 255, 255, 0.6);
+  min-width: 220px;
+}
+
+.contact-info__hours li span:first-child {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* WhatsApp Button */
+.contact-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-6);
+  border-radius: var(--radius-full);
+  background: rgba(37, 211, 102, 0.15);
+  border: 1px solid rgba(37, 211, 102, 0.3);
+  color: #25d366;
+  font-family: var(--font-sans);
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-sm);
+  letter-spacing: var(--ls-wide);
+  transition: background var(--transition-fast),
+    border-color var(--transition-fast), transform var(--transition-fast);
+  align-self: flex-start;
+}
+
+.contact-whatsapp:hover {
+  background: rgba(37, 211, 102, 0.25);
+  border-color: rgba(37, 211, 102, 0.5);
+  transform: translateY(-2px);
+}
+
+/* ----------------------------------------------------------
+   KONTAKT – Formular (rechte Spalte)
+---------------------------------------------------------- */
+.contact-form {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(192, 132, 212, 0.15);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8) var(--space-6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+@media (min-width: 768px) {
+  .contact-form {
+    padding: var(--space-10) var(--space-8);
+  }
+}
+
+.contact-form__title {
+  font-family: var(--font-serif);
+  font-weight: var(--fw-light);
+  font-size: var(--fs-lg);
+  color: var(--color-white);
+  margin-bottom: var(--space-6);
+}
+
+.contact-form__group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-bottom: var(--space-5);
+}
+
+.contact-form__group label {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-xs);
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+
+.contact-form__group input,
+.contact-form__group select,
+.contact-form__group textarea {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(192, 132, 212, 0.2);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--color-white);
+  font-family: var(--font-sans);
+  font-weight: var(--fw-light);
+  font-size: var(--fs-base);
+  transition: border-color var(--transition-fast),
+    background var(--transition-fast);
+  outline: none;
+}
+
+.contact-form__group input::placeholder,
+.contact-form__group textarea::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.contact-form__group input:focus,
+.contact-form__group select:focus,
+.contact-form__group textarea:focus {
+  border-color: rgba(192, 132, 212, 0.5);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Select Dropdown Arrow */
+.contact-form__group select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(255,255,255,0.5)' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--space-4) center;
+  padding-right: var(--space-10);
+  cursor: pointer;
+}
+
+.contact-form__group select option {
+  background: #1e1428;
+  color: var(--color-white);
+}
+
+/* Textarea */
+.contact-form__group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Datum + Uhrzeit nebeneinander */
+.contact-form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+
+@media (max-width: 480px) {
+  .contact-form__row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Submit Button */
+.contact-form__submit {
+  width: 100%;
+  margin-top: var(--space-4);
+}
+
+/* Erfolgsmeldung */
+.contact-form__success {
+  margin-top: var(--space-6);
+  padding: var(--space-4) var(--space-6);
+  border-radius: var(--radius-lg);
+  background: rgba(37, 211, 102, 0.12);
+  border: 1px solid rgba(37, 211, 102, 0.3);
+  color: #25d366;
+  font-family: var(--font-sans);
+  font-size: var(--fs-sm);
+  text-align: center;
+}
+
+/* Formular Fehlermeldung */
+.contact-form__error {
+  font-family: var(--font-sans);
+  font-size: var(--fs-xs);
+  color: rgba(255, 100, 100, 0.85);
+  margin-top: var(--space-1);
+}
+
+/* ----------------------------------------------------------
+   KONTAKT – Google Maps
+---------------------------------------------------------- */
+.contact-map-section {
+  background: var(--color-deep);
+}
+
+.contact-map-section .section-title {
+  color: var(--color-white);
+}
+
+.contact-map-section .section-label {
+  color: var(--color-lavender);
+}
+
+.contact-map {
+  position: relative;
+  z-index: 1;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 1px solid rgba(192, 132, 212, 0.15);
+}
+
+.contact-map iframe {
+  display: block;
+  width: 100%;
+  height: 400px;
+}
+
+@media (min-width: 768px) {
+  .contact-map iframe {
+    height: 500px;
+  }
+}
