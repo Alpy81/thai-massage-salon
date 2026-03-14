@@ -250,17 +250,15 @@ em {
 .btn--outline:hover {
   background: var(--color-violet);
   color: var(--color-white);
-  transform: translateY(-2px);
 }
 
 .btn--ghost {
   color: var(--color-white);
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgb(172, 100, 172);
 }
 
 .btn--ghost:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.7);
+  transform: translateY(-2px);
 }
 
 /* ----------------------------------------------------------

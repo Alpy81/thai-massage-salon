@@ -434,7 +434,8 @@
   font-family: var(--font-serif);
   font-weight: var(--fw-light);
   font-size: var(--fs-xl);
-  color: var(--color-white);
+  font-weight: 700;
+  color: black;
   margin-bottom: var(--space-4);
   line-height: var(--lh-snug);
 }
@@ -449,7 +450,8 @@
   font-family: var(--font-sans);
   font-weight: var(--fw-light);
   font-size: var(--fs-base);
-  color: rgba(255, 255, 255, 0.5);
+  font-weight: 100;
+  color: black;
   line-height: var(--lh-loose);
   margin-bottom: var(--space-8);
 }
@@ -466,7 +468,7 @@
   font-family: var(--font-serif);
   font-weight: var(--fw-light);
   font-size: var(--fs-xl);
-  color: var(--color-white);
+  color: black;
   letter-spacing: var(--ls-wide);
   transition: color var(--transition-fast);
   display: block;
