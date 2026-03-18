@@ -79,20 +79,6 @@
 /* ----------------------------------------------------------
      KONTAKT INFOS – Links
   ---------------------------------------------------------- */
-.contact-info {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-8);
-}
-
-.contact-info__title {
-  font-family: var(--font-serif);
-  font-weight: var(--fw-light);
-  font-size: var(--fs-xl);
-  color: var(--color-stone);
-  line-height: var(--lh-snug);
-}
-
 .contact-info__desc {
   font-family: var(--font-sans);
   font-weight: var(--fw-light);
@@ -221,19 +207,17 @@
 }
 
 .contact-form {
-  background: var(--color-white);
-  border-radius: var(--radius-lg);
-  padding: var(--space-8);
-  border: 1px solid var(--color-border);
-  box-shadow: var(--shadow-card);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-5);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(192, 132, 212, 0.15);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8) var(--space-6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 @media (min-width: 768px) {
   .contact-form {
-    padding: var(--space-10);
+    padding: var(--space-10) var(--space-8);
   }
 }
 
@@ -241,8 +225,8 @@
   font-family: var(--font-serif);
   font-weight: var(--fw-light);
   font-size: var(--fs-lg);
-  color: var(--color-stone);
-  margin-bottom: var(--space-2);
+  color: var(--color-white);
+  margin-bottom: var(--space-6);
 }
 
 .contact-form__subtitle {
@@ -432,9 +416,8 @@
 
 .booking__title {
   font-family: var(--font-serif);
-  font-weight: var(--fw-light);
-  font-size: var(--fs-xl);
   font-weight: 600;
+  font-size: var(--fs-xl);
   color: black;
   margin-bottom: var(--space-4);
   line-height: var(--lh-snug);
@@ -448,9 +431,8 @@
 
 .booking__desc {
   font-family: var(--font-sans);
-  font-weight: var(--fw-light);
-  font-size: var(--fs-base);
   font-weight: 100;
+  font-size: var(--fs-base);
   color: black;
   line-height: var(--lh-loose);
   margin-bottom: var(--space-8);
@@ -480,52 +462,6 @@
 }
 
 /* ----------------------------------------------------------
-     KARTE / ANFAHRT
-  ---------------------------------------------------------- */
-.map-section {
-  background: var(--color-surface);
-}
-
-.map-section__inner {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-8);
-}
-
-@media (min-width: 1024px) {
-  .map-section__inner {
-    grid-template-columns: 1fr 2fr;
-    align-items: center;
-  }
-}
-
-.map-section__info {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-5);
-}
-
-.map-section__info .section-title {
-  font-size: var(--fs-xl);
-}
-
-.map-embed {
-  width: 100%;
-  height: 380px;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  border: 1px solid var(--color-border);
-  box-shadow: var(--shadow-md);
-}
-
-.map-embed iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-  display: block;
-}
-
-/* ----------------------------------------------------------
    KONTAKT – Grid (Infos + Formular)
 ---------------------------------------------------------- */
 .contact-grid {
@@ -543,7 +479,7 @@
   .contact-grid {
     grid-template-columns: 1fr 1.2fr;
     gap: var(--space-16);
-    align-items: start;
+    align-items: stretch;
   }
 }
 
@@ -560,6 +496,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-8);
+  height: 100%;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
@@ -655,31 +592,27 @@
 }
 
 /* ----------------------------------------------------------
+   Mini-Map in Kontakt-Info (linke Spalte)
+---------------------------------------------------------- */
+.contact-info__map {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid rgba(192, 132, 212, 0.15);
+  margin-top: var(--space-2);
+  flex: 1;
+}
+
+.contact-info__map iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+  border-radius: var(--radius-lg);
+}
+
+/* ----------------------------------------------------------
    KONTAKT – Formular (rechte Spalte)
 ---------------------------------------------------------- */
-.contact-form {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(192, 132, 212, 0.15);
-  border-radius: var(--radius-xl);
-  padding: var(--space-8) var(--space-6);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-}
-
-@media (min-width: 768px) {
-  .contact-form {
-    padding: var(--space-10) var(--space-8);
-  }
-}
-
-.contact-form__title {
-  font-family: var(--font-serif);
-  font-weight: var(--fw-light);
-  font-size: var(--fs-lg);
-  color: var(--color-white);
-  margin-bottom: var(--space-6);
-}
-
 .contact-form__group {
   display: flex;
   flex-direction: column;
@@ -788,36 +721,47 @@
 }
 
 /* ----------------------------------------------------------
-   KONTAKT – Google Maps
+   KARTE / ANFAHRT
 ---------------------------------------------------------- */
-.contact-map-section {
-  background: var(--color-deep);
+.map-section {
+  background: var(--color-surface);
 }
 
-.contact-map-section .section-title {
-  color: var(--color-white);
+.map-section__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
 }
 
-.contact-map-section .section-label {
-  color: var(--color-lavender);
-}
-
-.contact-map {
-  position: relative;
-  z-index: 1;
-  border-radius: var(--radius-xl);
-  overflow: hidden;
-  border: 1px solid rgba(192, 132, 212, 0.15);
-}
-
-.contact-map iframe {
-  display: block;
-  width: 100%;
-  height: 400px;
-}
-
-@media (min-width: 768px) {
-  .contact-map iframe {
-    height: 500px;
+@media (min-width: 1024px) {
+  .map-section__inner {
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
   }
+}
+
+.map-section__info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.map-section__info .section-title {
+  font-size: var(--fs-xl);
+}
+
+.map-embed {
+  width: 100%;
+  height: 380px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-md);
+}
+
+.map-embed iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
 }
