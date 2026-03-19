@@ -545,3 +545,41 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+/* --------------------------------------------------------
+       11. DSGVO / Cookie Hinweis (Demo)
+    -------------------------------------------------------- */
+const cookieBanner = document.getElementById("cookieBanner");
+const cookieAcceptBtn = document.getElementById("cookieAcceptBtn");
+
+const CONSENT_KEY = "tm-cookie-banner-ack";
+const COOKIE_BANNER_DELAY = 4000;
+
+if (cookieBanner && cookieAcceptBtn) {
+  const hasAck = localStorage.getItem(CONSENT_KEY) === "1";
+
+  if (!hasAck) {
+    // Vorbereitung: unsichtbar aber im DOM
+    cookieBanner.style.opacity = "0";
+    cookieBanner.style.transform = "translateY(12px)";
+    cookieBanner.style.transition = "opacity 1s ease, transform 1s ease";
+
+    setTimeout(() => {
+      cookieBanner.hidden = false;
+      // kurz warten, damit Browser hidden=false verarbeitet
+      requestAnimationFrame(() => {
+        cookieBanner.style.opacity = "1";
+        cookieBanner.style.transform = "translateY(0)";
+      });
+    }, COOKIE_BANNER_DELAY);
+  }
+
+  cookieAcceptBtn.addEventListener("click", () => {
+    localStorage.setItem(CONSENT_KEY, "1");
+    cookieBanner.style.opacity = "0";
+    cookieBanner.style.transform = "translateY(12px)";
+    setTimeout(() => {
+      cookieBanner.hidden = true;
+    }, 400);
+  });
+}

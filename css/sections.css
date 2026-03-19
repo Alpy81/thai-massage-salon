@@ -505,6 +505,10 @@
   .price-table__head {
     display: none; /* Head ausblenden, weil wir stacken */
   }
+
+  #price {
+    margin-top: 1rem;
+  }
 }
 
 /* ----------------------------------------------------------
