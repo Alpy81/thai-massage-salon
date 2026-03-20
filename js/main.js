@@ -85,12 +85,11 @@ document.addEventListener("DOMContentLoaded", () => {
         lang === "de" ? el.getAttribute("data-de") : el.getAttribute("data-en");
     });
 
-    // Placeholder umschalten
-    document.querySelectorAll("[data-de-placeholder]").forEach((el) => {
+    document.querySelectorAll("[data-placeholder-de]").forEach((el) => {
       el.placeholder =
         lang === "de"
-          ? el.getAttribute("data-de-placeholder")
-          : el.getAttribute("data-en-placeholder");
+          ? el.getAttribute("data-placeholder-de")
+          : el.getAttribute("data-placeholder-en");
     });
 
     // Aktiven Button markieren

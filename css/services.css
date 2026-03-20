@@ -338,6 +338,11 @@
 /* ----------------------------------------------------------
      PREISLISTE – Separate leistungen.html Section
   ---------------------------------------------------------- */
+
+#price-head-color {
+  color: var(--color-stone);
+}
+
 .prices {
   background: var(--color-cream);
   overflow: hidden;
