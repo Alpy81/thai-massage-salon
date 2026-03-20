@@ -328,15 +328,16 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* --------------------------------------------------------
-       8. KONTAKTFORMULAR – Validierung + Erfolgsmeldung
+       8. KONTAKTFORMULAR – Validierung + Formspree Submit
     -------------------------------------------------------- */
   const contactForm = document.getElementById("contactForm");
 
   if (contactForm) {
     const successMsg = document.getElementById("formSuccess");
 
-    contactForm.addEventListener("submit", (e) => {
+    contactForm.onsubmit = async (e) => {
       e.preventDefault();
+      e.stopImmediatePropagation();
 
       // Pflichtfelder
       const name = contactForm.querySelector("#cf-name");
@@ -383,40 +384,57 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (!isValid) return;
 
-      // ── Hier später echten Versand einbauen ──
-      // Beispiel Formspree:
-      // fetch('https://formspree.io/f/DEINE_ID', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      //   body: JSON.stringify(Object.fromEntries(new FormData(contactForm)))
-      // });
+      // ── Formspree Versand ──
+      const FORMSPREE_URL = "https://formspree.io/f/xlgpvpna";
 
-      // Formular-Elemente ausblenden + Erfolg anzeigen
-      contactForm
-        .querySelectorAll(
-          ".contact-form__group, .contact-form__row, .contact-form__title, .contact-form__submit"
-        )
-        .forEach((el) => {
-          el.style.display = "none";
+      try {
+        const res = await fetch(FORMSPREE_URL, {
+          method: "POST",
+          body: new FormData(contactForm),
+          headers: { Accept: "application/json" },
         });
 
-      if (successMsg) {
-        successMsg.hidden = false;
-      }
+        if (res.ok) {
+          // Formular-Elemente ausblenden + Erfolg anzeigen
+          contactForm
+            .querySelectorAll(
+              ".contact-form__group, .contact-form__row, .contact-form__title, .contact-form__submit"
+            )
+            .forEach((el) => {
+              el.style.display = "none";
+            });
 
-      // Nach 5 Sek. Formular wieder einblenden
-      setTimeout(() => {
-        contactForm.reset();
-        contactForm
-          .querySelectorAll(
-            ".contact-form__group, .contact-form__row, .contact-form__title, .contact-form__submit"
-          )
-          .forEach((el) => {
-            el.style.display = "";
-          });
-        if (successMsg) successMsg.hidden = true;
-      }, 5000);
-    });
+          if (successMsg) {
+            successMsg.hidden = false;
+          }
+
+          // Nach 5 Sek. Formular wieder einblenden
+          setTimeout(() => {
+            contactForm.reset();
+            contactForm
+              .querySelectorAll(
+                ".contact-form__group, .contact-form__row, .contact-form__title, .contact-form__submit"
+              )
+              .forEach((el) => {
+                el.style.display = "";
+              });
+            if (successMsg) successMsg.hidden = true;
+          }, 5000);
+        } else {
+          alert(
+            currentLang === "en"
+              ? "Error sending. Please try again."
+              : "Fehler beim Senden. Bitte versuchen Sie es erneut."
+          );
+        }
+      } catch (err) {
+        alert(
+          currentLang === "en"
+            ? "Connection error. Please try again later."
+            : "Verbindungsfehler. Bitte versuchen Sie es später erneut."
+        );
+      }
+    };
 
     // Fehler unter Feld anzeigen
     function showFormError(field, message) {
