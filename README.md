@@ -138,5 +138,5 @@ This project is a client commission. All rights reserved.
 ---
 
 <p align="center">
-  Built with ❤️ by <strong>WEBSYLON</strong>
+  Built by <strong>WEBSYLON</strong>
 </p>
