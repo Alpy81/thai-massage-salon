@@ -137,10 +137,10 @@ This project is a client commission. All rights reserved.
 
 ---
 
-<div align="center">
+<div align="center" style="margin-top: 1rem; ">
 <h3>Built by</h3>
 </div>
 
 <p align="center">
-  <img src="images/websylon.png" alt="WEBSYLON">
+  <img src="images/websylon.png" alt="WEBSYLON" >
 </p>
