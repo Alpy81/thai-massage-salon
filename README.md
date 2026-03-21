@@ -137,7 +137,7 @@ This project is a client commission. All rights reserved.
 
 ---
 
-<div align="center" style="margin-top: 1rem; ">
+<div align="center" style="margin-top: 5rem; ">
 <h3>Built by</h3>
 </div>
 
