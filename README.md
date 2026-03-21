@@ -138,5 +138,5 @@ This project is a client commission. All rights reserved.
 ---
 
 <p align="center">
-  Built by &nbsp; <img src="images/websylon.png" alt="WEBSYLON" style="vertical-align: middle; display: inline; height: 15px; width: auto;" />
+  Built by &nbsp; <img src="images/websylon.png" alt="WEBSYLON" style="vertical-align: middle; display: inline; height: 150px; width: auto;" />
 </p>
