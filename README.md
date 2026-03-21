@@ -137,6 +137,8 @@ This project is a client commission. All rights reserved.
 
 ---
 
+<h3>Built by</h3>
+
 <p align="center">
   <img src="images/websylon.png" alt="WEBSYLON">
 </p>
