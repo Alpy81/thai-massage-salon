@@ -124,7 +124,7 @@ git clone https://github.com/Alpy81/thai-massage-salon.git
 cd thai-massage-salon
 
 # Start a local server
-npx serve
+npx serve .
 ```
 
 Open `http://localhost:3000` in your browser.
@@ -138,5 +138,5 @@ This project is a client commission. All rights reserved.
 ---
 
 <p align="center">
-  Built by <img src="images/websylon.png">
+  Built by &nbsp; <img src="images/websylon.png" alt="WEBSYLON" height="28" style="vertical-align: middle; display: inline;" />
 </p>
