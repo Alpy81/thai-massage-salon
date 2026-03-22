@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Termin buchen – Thai Massage. Online Termin buchen (60 Minuten). Für 90/120 Minuten bitte telefonisch oder per WhatsApp anfragen." />
+    <title
+      data-de="Termin buchen – Thai Massage"
+      data-en="Book Appointment – Thai Massage">
+      Termin buchen – Thai Massage
+    </title>
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Termin buchen – Thai Massage" />
+    <meta
+      property="og:description"
+      content="Online Termin buchen (60 Minuten). Für 90/120 Minuten bitte telefonisch oder per WhatsApp anfragen." />
+    <meta property="og:image" content="images/hero.png" />
+    <meta property="og:url" content="https://www.IHRE-DOMAIN.de/booking.html" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="manifest" href="site.webmanifest" />
+
+    <!-- CSS (wie in index.html / kontakt.html) -->
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/navbar.css" />
+    <link rel="stylesheet" href="css/sections.css" />
+    <link rel="stylesheet" href="css/services.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+
+    <!-- Page-specific -->
+    <link rel="stylesheet" href="css/booking.css" />
+  </head>
+
+  <body>
+    <!-- ======================================================
+       NAVBAR
+    ====================================================== -->
+    <header id="navbar" class="navbar">
+      <div class="navbar__inner">
+        <a href="index.html" class="navbar__logo">
+          <img src="images/transparent-logo.png" alt="Thai Massage Logo" />
+        </a>
+
+        <nav class="navbar__nav" aria-label="Hauptnavigation">
+          <a
+            href="index.html"
+            class="navbar__link"
+            data-de="Startseite"
+            data-en="Home"
+            >Startseite</a
+          >
+          <a
+            href="index.html#about"
+            class="navbar__link"
+            data-de="Über uns"
+            data-en="About"
+            >Über uns</a
+          >
+          <a
+            href="leistungen.html"
+            class="navbar__link"
+            data-de="Leistungen"
+            data-en="Services"
+            >Leistungen</a
+          >
+          <a
+            href="leistungen.html#preise"
+            class="navbar__link"
+            data-de="Preise"
+            data-en="Prices"
+            >Preise</a
+          >
+          <a
+            href="kontakt.html"
+            class="navbar__link"
+            data-de="Kontakt"
+            data-en="Contact"
+            >Kontakt</a
+          >
+        </nav>
+
+        <div class="lang-toggle">
+          <button class="lang-toggle__btn active" data-lang="de">🇩🇪 DE</button>
+          <span class="lang-toggle__sep">|</span>
+          <button class="lang-toggle__btn" data-lang="en">🇬🇧 EN</button>
+        </div>
+
+        <a
+          href="booking.html"
+          class="navbar__cta active"
+          data-de="Termin buchen"
+          data-en="Book Now"
+          >Termin buchen</a
+        >
+
+        <button
+          id="burger"
+          class="burger"
+          aria-label="Menü öffnen"
+          aria-expanded="false">
+          <span class="burger__line"></span>
+          <span class="burger__line"></span>
+          <span class="burger__line"></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu" role="dialog" aria-modal="true">
+      <a
+        href="index.html"
+        class="mobile-menu__link"
+        data-de="Startseite"
+        data-en="Home"
+        >Startseite</a
+      >
+      <a
+        href="index.html#about"
+        class="mobile-menu__link"
+        data-de="Über uns"
+        data-en="About"
+        >Über uns</a
+      >
+      <a
+        href="leistungen.html"
+        class="mobile-menu__link"
+        data-de="Leistungen"
+        data-en="Services"
+        >Leistungen</a
+      >
+      <a
+        href="leistungen.html#preise"
+        class="mobile-menu__link"
+        data-de="Preise"
+        data-en="Prices"
+        >Preise</a
+      >
+      <a
+        href="kontakt.html"
+        class="mobile-menu__link"
+        data-de="Kontakt"
+        data-en="Contact"
+        >Kontakt</a
+      >
+
+      <div class="mobile-menu__lang">
+        <button class="lang-toggle__btn" data-lang="de">🇩🇪 DE</button>
+        <span class="lang-toggle__sep">|</span>
+        <button class="lang-toggle__btn" data-lang="en">🇬🇧 EN</button>
+      </div>
+
+      <a
+        href="booking.html"
+        class="mobile-menu__cta"
+        data-de="Termin buchen"
+        data-en="Book Now"
+        >Termin buchen</a
+      >
+      <span class="mobile-menu__deco">Thai Massage</span>
+    </div>
+
+    <main>
+      <!-- ====================================================
+          BOOKING – INTRO
+      ==================================================== -->
+      <section class="services section booking-page">
+        <div class="container">
+          <div class="services__header reveal">
+            <span class="section-label" data-de="Termin" data-en="Booking"
+              >Termin</span
+            >
+
+            <h1
+              class="section-title"
+              data-de="Online Termin buchen"
+              data-en="Book online">
+              Online Termin buchen
+            </h1>
+
+            <p
+              class="section-sub"
+              data-de="Buchen Sie Ihren Termin bequem online. Für längere Behandlungsdauer kontaktieren Sie uns bitte kurz."
+              data-en="Book your appointment online. For longer sessions, please contact us briefly.">
+              Buchen Sie Ihren Termin bequem online. Für längere
+              Behandlungsdauer kontaktieren Sie uns bitte kurz.
+            </p>
+          </div>
+
+          <!-- Notice Card -->
+          <div class="booking-note reveal">
+            <div class="booking-note__inner">
+              <div class="booking-note__icon" aria-hidden="true">⏱️</div>
+
+              <div class="booking-note__content">
+                <h2
+                  class="booking-note__title"
+                  data-de="Hinweis zur Behandlungsdauer"
+                  data-en="Notice about session duration">
+                  Hinweis zur Behandlungsdauer
+                </h2>
+
+                <p
+                  class="booking-note__text"
+                  data-de="Online sind aktuell nur 60-Minuten-Termine buchbar. Wenn Sie 90 oder 120 Minuten wünschen, melden Sie sich bitte telefonisch oder per WhatsApp – wir prüfen die Verfügbarkeit und passen den Termin an."
+                  data-en="Currently, only 60-minute appointments can be booked online. If you would like 90 or 120 minutes, please contact us by phone or WhatsApp — we’ll check availability and adjust your appointment.">
+                  Online sind aktuell nur 60-Minuten-Termine buchbar. Wenn Sie
+                  90 oder 120 Minuten wünschen, melden Sie sich bitte
+                  telefonisch oder per WhatsApp – wir prüfen die Verfügbarkeit
+                  und passen den Termin an.
+                </p>
+
+                <div class="booking-note__actions">
+                  <a
+                    class="btn btn--primary"
+                    href="tel:+49000000000"
+                    data-de="📞 Anrufen"
+                    data-en="📞 Call">
+                    📞 Anrufen
+                  </a>
+
+                  <a
+                    class="btn btn--outline"
+                    href="https://wa.me/49000000000"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-de="💬 WhatsApp"
+                    data-en="💬 WhatsApp">
+                    💬 WhatsApp
+                  </a>
+
+                  <a
+                    class="btn btn--ghost"
+                    href="https://massagetermin.simplybook.it"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-de="↗ Booking-Seite öffnen"
+                    data-en="↗ Open booking page">
+                    ↗ Booking-Seite öffnen
+                  </a>
+                </div>
+
+                <p
+                  class="booking-note__small"
+                  data-de="Tipp: Für längere Termine kann eine kurze Bestätigung nötig sein, damit es danach nicht zu Überschneidungen kommt."
+                  data-en="Tip: Longer appointments may require a quick confirmation to avoid overlaps afterwards.">
+                  Tipp: Für längere Termine kann eine kurze Bestätigung nötig
+                  sein, damit es danach nicht zu Überschneidungen kommt.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- SimplyBook Embed -->
+          <div class="booking-embed reveal">
+            <iframe
+              class="booking-embed__frame"
+              title="SimplyBook Online-Buchung"
+              src="https://massagetermin.simplybook.it"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- JS -->
+    <script src="js/main.js"></script>
+  </body>
+</html>
