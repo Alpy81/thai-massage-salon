@@ -1,0 +1,130 @@
+/* ============================================================
+   THAI MASSAGE – Booking Page
+   booking.css
+   ============================================================ */
+
+.booking-page .services__header {
+  margin-bottom: var(--space-10);
+}
+
+/* Notice Card */
+.booking-note {
+  margin-top: var(--space-8);
+}
+
+.booking-note__inner {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: var(--space-6);
+
+  padding: var(--space-8);
+  border-radius: var(--radius-lg);
+
+  background: rgb(246, 201, 243);
+  border: 1px solid rgba(123, 94, 167, 0.18);
+  box-shadow: var(--shadow-card);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.booking-note__icon {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-full);
+
+  display: grid;
+  place-items: center;
+
+  background: linear-gradient(
+    135deg,
+    var(--color-lavender),
+    var(--color-violet)
+  );
+  color: var(--color-white);
+  box-shadow: var(--shadow-sm);
+}
+
+.booking-note__title {
+  margin: 0 0 var(--space-2);
+  color: var(--color-stone);
+}
+
+.booking-note__text {
+  margin: 0;
+  color: var(--color-stone);
+}
+
+.booking-note__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+}
+
+.booking-note__small {
+  margin-top: var(--space-3);
+  font-size: var(--fs-sm);
+  color: var(--color-stone);
+}
+
+/* Embed */
+.booking-embed {
+  margin-top: var(--space-10);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+
+  border: 1px solid rgba(123, 94, 167, 0.18);
+  box-shadow: var(--shadow-md);
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.booking-embed__frame {
+  width: 100%;
+  height: 900px; /* adjust if needed */
+  border: 0;
+  display: block;
+  background: transparent;
+}
+
+#whatsapp:hover {
+  color: white;
+  background-color: rgb(47, 255, 50);
+  border: 0px;
+}
+
+@media (max-width: 640px) {
+  .booking-note__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .booking-note__icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .booking-embed__frame {
+    height: 980px;
+  }
+}
+
+/* iPhone / small screens: more space below fixed navbar so section-label is visible */
+@media (max-width: 480px) {
+  .booking-page {
+    padding-top: calc(var(--navbar-height) + var(--space-6));
+  }
+}
+
+/* iPad / middle screens: more space below fixed navbar so section-label is visible */
+@media (max-width: 1024px) {
+  .booking-page {
+    padding-top: calc(var(--navbar-height) + var(--space-6));
+  }
+}
+
+/* Destop / bigger screens: more space below fixed navbar so section-label is visible */
+@media (max-width: 1248px) {
+  .booking-page {
+    padding-top: calc(var(--navbar-height) + var(--space-6));
+  }
+}
