@@ -131,16 +131,18 @@ Open `http://localhost:3000` in your browser.
 
 ---
 
-## 📝 License
+<div align="center">
 
-This project is a client commission. All rights reserved.
+<img src="/public/images/websylon.png" alt="WEBSYLON" width="200" />
 
 **WEBSYLON** — Professional Web Development & Digital Solutions
 
 _Frankfurt am Main, Germany_
 
+</div>
+
 ---
 
 <div align="center">
-  <img src="images/websylon.png" alt="WEBSYLON" >
+  <sub>© 2026 WEBSYLON. All rights reserved.</sub>
 </div>
