@@ -133,7 +133,7 @@ Open `http://localhost:3000` in your browser.
 
 <div align="center">
 
-<img src="/public/images/websylon.png" alt="WEBSYLON" width="200" />
+<img src="images/websylon.png" alt="WEBSYLON" width="200" />
 
 **WEBSYLON** — Professional Web Development & Digital Solutions
 
