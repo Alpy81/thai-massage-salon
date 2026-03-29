@@ -135,6 +135,10 @@ Open `http://localhost:3000` in your browser.
 
 This project is a client commission. All rights reserved.
 
+**WEBSYLON** — Professional Web Development & Digital Solutions
+
+_Frankfurt am Main, Germany_
+
 ---
 
 <div align="center">
