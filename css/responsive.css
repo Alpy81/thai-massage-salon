@@ -55,6 +55,10 @@
     padding: var(--space-6);
   }
 
+  .section-label {
+    margin-top: 3rem;
+  }
+
   /* Preisliste */
   .price-row {
     flex-direction: column;
